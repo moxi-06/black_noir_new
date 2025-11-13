@@ -1,0 +1,23 @@
+#version: "3.8"
+#services:
+ #  worker:
+  #  build: .
+   # environment:
+    #  BOT_TOKEN: $BOT_TOKEN
+     # API_ID: $API_ID
+     # API_HASH: $API_HASH
+     # CHANNELS: $CHANNELS
+     # ADMINS: $ADMINS
+     # LOG_CHANNEL: $LOG_CHANNEL
+     # DATABASE_NAME: $DATABASE_NAME
+     # DATABASE_URI: $DATABASE_URI
+     # HEROKU_API_KEY: $HEROKU_API_KEY#
+
+version: "3.8"
+
+services:
+  worker:
+    build: .
+    ports:
+      - "8081:80"  # Expose internal port 80 as 8081 on your VPS
+    restart: unless-stopped
