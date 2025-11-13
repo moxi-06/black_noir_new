@@ -17,7 +17,5 @@ version: "3.8"
 
 services:
   worker:
-    build: .
-    ports:
-      - "8081:80"  # Expose internal port 80 as 8081 on your VPS
+    build: . # Expose internal port 80 as 8081 on your VPS
     restart: unless-stopped
