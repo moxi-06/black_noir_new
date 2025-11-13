@@ -109,7 +109,7 @@ async def Lucy_start():
     app = web.AppRunner(await web_server())
     await app.setup()
     bind_address = "0.0.0.0"
-    await web.TCPSite(app, bind_address, PORT).start()
+    await web.TCPSite(app, bind_address, 8080).start()
     await idle()
     
 if __name__ == '__main__':
