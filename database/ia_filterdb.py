@@ -276,7 +276,7 @@ async def send_msg(bot, filename, caption):
         for lang in possible_languages:
             if lang.lower() in caption.lower():
                 language += f"{lang}, "
-        language = language[:-2] if language else "Not idea 😄"
+        language = language[:-2] if language else "No idea 🙂"
 
         filename = re.sub(r"[\(\)\[\]\{\}:;'\-!]", "", filename)
 
@@ -293,7 +293,7 @@ async def send_msg(bot, filename, caption):
                     resized_poster = await fetch_image(poster_url)  
 
             filenames = filename.replace(" ", '-')
-            btn = [[InlineKeyboardButton('🌲 Get Files 🌲', url=f"https://telegram.me/{temp.U_NAME}?start=getfile-{filenames}")]]
+            btn = [[InlineKeyboardButton('🌲 Get Files in Group 🌲', url=f"https://telegram.me/GenzFlixGrp")]]
             
             if resized_poster:
                 await bot.send_photo(chat_id=MOVIE_UPDATE_CHANNEL, photo=resized_poster, caption=text, reply_markup=InlineKeyboardMarkup(btn))
