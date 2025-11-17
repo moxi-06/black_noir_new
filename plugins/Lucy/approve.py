@@ -6,7 +6,7 @@ from pyrogram.types import Message, User, ChatJoinRequest, InlineKeyboardMarkup,
 
 # Default settings
 APPROVAL_WAIT_TIME = 10  # seconds
-AUTO_APPROVE_ENABLED = False  # Toggle for enabling/disabling auto approval
+AUTO_APPROVE_ENABLED = True  # Toggle for enabling/disabling auto approval
 
 @Client.on_chat_join_request((filters.group | filters.channel) & filters.chat(CHAT_ID) if CHAT_ID else (filters.group | filters.channel))
 async def autoapprove(client, message: ChatJoinRequest):
@@ -26,7 +26,7 @@ async def autoapprove(client, message: ChatJoinRequest):
     if APPROVED == "on":
         invite_link = await client.export_chat_invite_link(chat.id)
         buttons = [
-            [InlineKeyboardButton('• ᴊᴏɪɴ ᴍʏ ᴜᴘᴅᴀᴛᴇs •', url='https://t.me/codeflix_bots')],
+            [InlineKeyboardButton('• ᴊᴏɪɴ ᴍʏ ᴜᴘᴅᴀᴛᴇs •', url='https://t.me/Genz_Flix')],
             [InlineKeyboardButton(f'• ᴊᴏɪɴ {chat.title} •', url=invite_link)]
         ]
         markup = InlineKeyboardMarkup(buttons)
