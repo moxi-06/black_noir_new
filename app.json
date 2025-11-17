@@ -15,8 +15,8 @@
       "index",
       "inline"
     ],
-    "website": "https://github.com/codeflix-bots/autofilter",
-    "repository": "/codeflix-bots/autofilter",
+    "website": "https://github.com/moxi-06/black_noir_new",
+    "repository": "/moxi-06/black_noir_new",
     "env": {
         "BOT_TOKEN": {
             "description": "Your bot token.",
