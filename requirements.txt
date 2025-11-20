@@ -62,9 +62,6 @@ qrcode
 textblob
 langdetect 
 
-# Git-based Packages
-git+https://github.com/Joelkb/cinemagoer
-
 # Other Tools
 apscheduler
 opencv-python-headless==4.8.1.78
