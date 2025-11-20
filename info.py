@@ -18,9 +18,9 @@ def is_enabled(value, default):
 # Bot Information Configuration
 # ============================
 SESSION = environ.get('SESSION', 'Media_search')
-API_ID = int(environ.get('API_ID', ''))
-API_HASH = environ.get('API_HASH', '')
-BOT_TOKEN = environ.get('BOT_TOKEN', "")
+API_ID = int(environ.get('API_ID', '23448804'))
+API_HASH = environ.get('API_HASH', '07a3c7834916cb7a4318026dbf0eac28')
+BOT_TOKEN = environ.get('BOT_TOKEN', "8417152189:AAHQa-QNTiaqhSFi8LRK40yCwCqeneuiHF4")
 
 # ============================
 # Bot Settings Configuration
@@ -67,8 +67,8 @@ APPROVED = environ.get("APPROVED_WELCOME", "off").lower()
 # ============================
 # MongoDB Configuration
 # ============================
-DATABASE_URI = environ.get('DATABASE_URI', "")
-DATABASE_URI2 = environ.get('DATABASE_URI2', "")
+DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://monish280720_db_user:YyGaBZeyBu7rxPz7@cluster0.8mjn1vc.mongodb.net/?appName=Cluster0")
+DATABASE_URI2 = environ.get('DATABASE_URI2', "mongodb+srv://monish280720:hsUe1KPZd5wh5hfD@cluster0.x2rr3kl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 DATABASE_NAME = environ.get('DATABASE_NAME', "black_noir")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'movie_files')
 
@@ -101,7 +101,7 @@ IS_TUTORIAL = bool(environ.get('IS_TUTORIAL', False))
 # ============================
 GRP_LNK = environ.get('GRP_LNK', 'https://t.me/Genz_Flix_Grp')
 CHNL_LNK = environ.get('CHNL_LNK', 'https://t.me/Genz_Flix')
-OWNER_LNK = environ.get('OWNER_LNK', 'https://t.me/Genz_Flix')
+OWNER_LNK = environ.get('OWNER_LNK', 'https://t.me/Genz_Flix_bot')
 MOVIE_UPDATE_CHANNEL_LNK = environ.get('MOVIE_UPDATE_CHANNEL_LNK', 'https://t.me/Genz_Flix')
 OWNERID = int(os.environ.get('OWNERID', '6476946240'))  # Replace with the actual admin ID
 
@@ -155,36 +155,39 @@ SEASONS = ["season 1" , "season 2" , "season 3" , "season 4", "season 5" , "seas
 
 # ============================
 # Server & Web Configuration
+
+
+
+# ============================
+# Server & Web Configuration
 # ============================
 
-STREAM_MODE = bool(environ.get('STREAM_MODE', True)) # Set Stream mode True or False
+from os import getenv, environ
 
-NO_PORT = bool(environ.get('NO_PORT', False))
-APP_NAME = None
-if 'DYNO' in environ:
-    ON_HEROKU = True
-    APP_NAME = environ.get('APP_NAME')
+# Basic web settings
+STREAM_MODE = bool(environ.get('STREAM_MODE', True))
+ON_HEROKU = False  # You're on VPS, not Heroku
+
+# Bind to all IPs inside Docker
+BIND_ADRESS = "0.0.0.0"
+
+# Public access details
+FQDN = "161.118.175.97"
+PORT = 8081  # must match docker-compose.yml
+HAS_SSL = False  # no SSL (https) on IP
+
+# Build base URL
+if HAS_SSL:
+    URL = f"https://{FQDN}:{PORT}/"
 else:
-    ON_HEROKU = False
-BIND_ADRESS = str(getenv('WEB_SERVER_BIND_ADDRESS', '0.0.0.0'))
-FQDN = str(getenv('FQDN', BIND_ADRESS)) if not ON_HEROKU or getenv('FQDN') else APP_NAME+'.herokuapp.com'
-URL = "https://{}/".format(FQDN) if ON_HEROKU or NO_PORT else "https://{}/".format(FQDN, PORT)
+    URL = f"http://{FQDN}:{PORT}/"
+
+# Other options
 SLEEP_THRESHOLD = int(environ.get('SLEEP_THRESHOLD', '60'))
 WORKERS = int(environ.get('WORKERS', '4'))
-SESSION_NAME = str(environ.get('SESSION_NAME', 'codeflix'))
+SESSION_NAME = str(environ.get('SESSION_NAME', 'black_noir'))
 MULTI_CLIENT = False
-name = str(environ.get('name', 'Deendayal'))
-PING_INTERVAL = int(environ.get("PING_INTERVAL", "1200"))  # 20 minutes
-if 'DYNO' in environ:
-    ON_HEROKU = True
-    APP_NAME = str(getenv('APP_NAME'))
-else:
-    ON_HEROKU = False
-HAS_SSL = bool(getenv('HAS_SSL', True))
-if HAS_SSL:
-    URL = "https://{}/".format(FQDN)
-else:
-    URL = "http://{}/".format(FQDN)
+PING_INTERVAL = int(environ.get("PING_INTERVAL", "1200"))
 
 # ============================
 # Reactions Configuration
@@ -282,4 +285,3 @@ LOG_STR += ("SINGLE_BUTTON is found, filename and file size will be shown in a s
 LOG_STR += (f"CUSTOM_FILE_CAPTION enabled with value {CUSTOM_FILE_CAPTION}, your files will be sent along with this customized caption.\n" if CUSTOM_FILE_CAPTION else "No CUSTOM_FILE_CAPTION Found, Default captions of file will be used.\n")
 LOG_STR += ("Long IMDB storyline enabled." if LONG_IMDB_DESCRIPTION else "LONG_IMDB_DESCRIPTION is disabled, Plot will be shorter.\n")
 LOG_STR += ("Spell Check Mode is enabled, bot will be suggesting related movies if movie name is misspelled.\n" if SPELL_CHECK_REPLY else "Spell Check Mode is disabled.\n")
-
