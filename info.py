@@ -172,7 +172,7 @@ ON_HEROKU = False  # You're on VPS, not Heroku
 BIND_ADRESS = "0.0.0.0"
 
 # Public access details
-FQDN = "161.118.175.97"
+FQDN = "140.245.225.125"
 PORT = 8081  # must match docker-compose.yml
 HAS_SSL = False  # no SSL (https) on IP
 
