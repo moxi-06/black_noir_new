@@ -18,9 +18,9 @@ def is_enabled(value, default):
 # Bot Information Configuration
 # ============================
 SESSION = environ.get('SESSION', 'Media_search')
-API_ID = int(environ.get('API_ID', '23448804'))
-API_HASH = environ.get('API_HASH', '07a3c7834916cb7a4318026dbf0eac28')
-BOT_TOKEN = environ.get('BOT_TOKEN', "8417152189:AAHQa-QNTiaqhSFi8LRK40yCwCqeneuiHF4")
+API_ID = int(environ.get('API_ID', ''))
+API_HASH = environ.get('API_HASH', '')
+BOT_TOKEN = environ.get('BOT_TOKEN', "")
 
 # ============================
 # Bot Settings Configuration
@@ -67,8 +67,8 @@ APPROVED = environ.get("APPROVED_WELCOME", "off").lower()
 # ============================
 # MongoDB Configuration
 # ============================
-DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://monish280720_db_user:YyGaBZeyBu7rxPz7@cluster0.8mjn1vc.mongodb.net/?appName=Cluster0")
-DATABASE_URI2 = environ.get('DATABASE_URI2', "mongodb+srv://monish280720:hsUe1KPZd5wh5hfD@cluster0.x2rr3kl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+DATABASE_URI = environ.get('DATABASE_URI', "")
+DATABASE_URI2 = environ.get('DATABASE_URI2', "")
 DATABASE_NAME = environ.get('DATABASE_NAME', "black_noir")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'movie_files')
 
